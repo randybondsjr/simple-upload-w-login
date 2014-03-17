@@ -104,8 +104,7 @@
 					
 			//more or less, we're defining the renamed file, with folder path
 			$target_path = $target_path . basename($filename); 
-			echo $target_path;
-			exit;
+
 			//check and see if this is a pdf, if not, DO NOT allow upload (security is bestest)
 			if(in_array($file['type'],$file_types)){
 				move_uploaded_file($file['tmp_name'], $target_path);
