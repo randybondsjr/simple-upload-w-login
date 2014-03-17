@@ -69,11 +69,22 @@
   }
   
   function upload_file($file,$path){
+    /**********************************
+    Information 
+    **********************************/
+    
+    //Allowed MIME types (be careful, these are not always consistent
+    // (http://www.hansenb.pdx.edu/DMKB/dict/tutorials/mime_typ.php)
+    $file_types = array("application/zip");
+    
     //UPLOAD A FILE, IF ONE IS PRESENT
 		if($file["name"] != ''){
-			#### FILE UPLOAD PROCESS START ####
+		  //get extension
+		  $extension = substr($file["name"], -4);
+		  
 			//define upload path
 			$folder = date("Y")."/";
+			
 			//check for trailing slash, if it's not there, add it
 			if(substr($path,-1) != "/") {
   			$path = $path."/";
@@ -81,22 +92,23 @@
 			$target_path = $path.$folder;
 			//we want to organize these files in folders by year, check if the folder exists, if it doesn't, make it
 			if(!is_dir($target_path)){
-				mkdir($target_path, 0755);	
+        mkdir($target_path, 0755);	
 			}
 			
-			//clean up the spaces in the filename
-			$filename = "yakima-gtfs-".date("YmdHis");
-			$filename = "$filename.zip";
+			//make file name unique, you can leave the filename as is by uncommenting the first line
+			//and commenting the next three lines.
+			//$filename = $file["name"]
+			$fileprefix = "yakima-gtfs-";
+			$filename = $fileprefix.date("YmdHis");
+			$filename = $filename.$extension;
 					
 			//more or less, we're defining the renamed file, with folder path
 			$target_path = $target_path . basename($filename); 
 			echo $target_path;
 			exit;
 			//check and see if this is a pdf, if not, DO NOT allow upload (security is bestest)
-			if($_FILES['photo']['type'] == 'image/jpeg'){
-				move_uploaded_file($_FILES['photo']['tmp_name'], $target_path);
-		
+			if(in_array($file['type'],$file_types)){
+				move_uploaded_file($file['tmp_name'], $target_path);
 			}
-			#### FILE UPLOAD PROCESS END ####
 		}
   }
