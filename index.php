@@ -2,6 +2,7 @@
   session_start();
   require("../includes/functions.php");
 
+  require("./includes/functions.php");
 
   print_r($_SESSION);
   
