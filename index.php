@@ -26,6 +26,14 @@
   <title>Upload</title>
 </head>
 <body>
+  <?php 
+    if(isset($_SESSION["error"]) && $_SESSION["error"] != ''){
+      echo "<div class=\"alert alert-danger alert-dismissable\">
+          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
+          <h4>Error!</h4> $_SESSION[error].
+        </div>";
+    }
+  ?>
   <?php if($_SESSION["authorized"] != 1): //check if user is logged in ?>
     <form role="form" method="POST" action="./">
       <div class="form-group">
