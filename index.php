@@ -9,8 +9,10 @@
     $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     login($username, $password);
   }
-  
   //file upload logic
+  if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
+    upload_file($_FILES["gtfsFile"], "./files");
+  }
 ?>
 <!doctype html>
 <html>

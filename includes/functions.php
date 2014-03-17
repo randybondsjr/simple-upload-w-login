@@ -66,6 +66,7 @@
   }
   
   function upload_file($file,$path){
+    print_r($file);
     //UPLOAD A FILE, IF ONE IS PRESENT
 		if($_FILES["photo"]["name"] != ''){
 			#### FILE UPLOAD PROCESS START ####
