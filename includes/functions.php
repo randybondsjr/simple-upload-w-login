@@ -43,6 +43,9 @@
     $row_cnt = $result->num_rows;
        //if match is equal to 1 there is a match
       if($row_cnt == 1){
+        //need to clean out any errors that may exist
+        unset($_SESSION['error']);
+        
         //set session
         $_SESSION['authorized'] = true;
         
