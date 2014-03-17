@@ -39,12 +39,12 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   <?php else: ?>
-    <p>Use this form to upload a .zip GTFS file</p>
+    <p>Use this form to upload a file</p>
     <form role="form" method="POST" action="./" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="gtfsFile">GTFS File</label>
+        <label for="gtfsFile">File</label>
         <input type="file" name="gtfsFile" id="gtfsFile">
-        <p class="help-block">Please upload a GTFS .zip file only. All other files will result in an error.</p>
+        <p class="help-block">Please upload a .zip file only. All other files will result in an error.</p>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>

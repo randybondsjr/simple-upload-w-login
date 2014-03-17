@@ -38,7 +38,7 @@
     $mysqli = ConnectToDBo('wptransit');
     
     // check if the user id and password combination exist in database
-    $sql = "SELECT * FROM gtfs_users WHERE username = '$user' AND password = '$pass' LIMIT 0,1";
+    $sql = "SELECT * FROM table WHERE username = '$user' AND password = '$pass' LIMIT 0,1";
 
     //if things worked
     if ($result = $mysqli->query($sql)) {
@@ -103,7 +103,7 @@
 			//make file name unique, you can leave the filename as is by uncommenting the first line
 			//and commenting the next three lines.
 			//$filename = $file["name"]
-			$fileprefix = "yakima-gtfs-";
+			$fileprefix = "prefix-";
 			$filename = $fileprefix.date("YmdHis");
 			$filename = $filename.$extension;
 					
