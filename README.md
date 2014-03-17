@@ -4,3 +4,6 @@ This script will allow for an upload of a file behind a login.
 
 ##Installation
 
+1. Place the contents of this folder on your webserver
+2. Change the 
+
