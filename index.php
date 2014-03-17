@@ -17,6 +17,11 @@
   <title>Upload</title>
 </head>
 <body>
+  <?php if(isset($_SESSION["authorized"])): //check if user is logged in ?>
+  <div class="pull-right add-margin-top">
+    <a href="./logout.php" class="btn btn-info">Logout</a>
+  </div>
+  <?php endif; ?>
   <?php
     //file upload logic
     if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
