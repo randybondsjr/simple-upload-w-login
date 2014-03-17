@@ -1,4 +1,7 @@
 <?php 
+  //you should update this to your date/timezone
+  date_default_timezone_set('America/Los_Angeles');
+  
   // function to escape data and strip tags
   function safestrip($string){
          $string = strip_tags($string);
@@ -66,27 +69,29 @@
   }
   
   function upload_file($file,$path){
-    print_r($file);
-    print_r($path);
     //UPLOAD A FILE, IF ONE IS PRESENT
 		if($file["name"] != ''){
 			#### FILE UPLOAD PROCESS START ####
 			//define upload path
-			//$target_path = "/var/www/apps/yak-back/uimages";
-			$target_path = $path;
-			
+			$folder = date("Y")."/";
+			//check for trailing slash, if it's not there, add it
+			if(substr($path,-1) != "/") {
+  			$path = $path."/";
+			}
+			$target_path = $path.$folder;
 			//we want to organize these files in folders by year, check if the folder exists, if it doesn't, make it
 			if(!is_dir($target_path)){
 				mkdir($target_path, 0755);	
 			}
 			
 			//clean up the spaces in the filename
-			$filename = date("YmdHis");
-			$filename = "$filename.jpg";
+			$filename = "yakima-gtfs-".date("YmdHis");
+			$filename = "$filename.zip";
 					
 			//more or less, we're defining the renamed file, with folder path
-			$target_path = $target_path ."/". basename($filename); 
-			
+			$target_path = $target_path . basename($filename); 
+			echo $target_path;
+			exit;
 			//check and see if this is a pdf, if not, DO NOT allow upload (security is bestest)
 			if($_FILES['photo']['type'] == 'image/jpeg'){
 				move_uploaded_file($_FILES['photo']['tmp_name'], $target_path);
