@@ -1,4 +1,3 @@
-<!doctype html>
 <?php 
   session_start();
   require("../includes/functions.php");
@@ -67,6 +66,7 @@
   print_r($_SESSION);
   
 ?>
+<!doctype html>
 <html>
 <head>
   <title>Upload</title>
