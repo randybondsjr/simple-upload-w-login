@@ -9,16 +9,7 @@
     $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     login($username, $password);
   }
-  //file upload logic
-  if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
-    $path = $_SERVER['DOCUMENT_ROOT'] ."/gtfs-upload/files";
-    if(upload_file($_FILES["gtfsFile"], $path)){
-      echo "<div class=\"alert alert-success alert-dismissable\">
-        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
-        <h4>Success!</h4> Your file has been uploaded.
-      </div>";
-    }
-  }
+  
 ?>
 <!doctype html>
 <html>
@@ -26,6 +17,18 @@
   <title>Upload</title>
 </head>
 <body>
+  <?php
+    //file upload logic
+    if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
+      $path = $_SERVER['DOCUMENT_ROOT'] ."/gtfs-upload/files";
+      if(upload_file($_FILES["gtfsFile"], $path)){
+        echo "<div class=\"alert alert-success alert-dismissable\">
+          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
+          <h4>Success!</h4> Your file has been uploaded.
+        </div>";
+      }
+    }
+  ?>
   <?php 
     if(isset($_SESSION["error"]) && $_SESSION["error"] != ''){
       echo "<div class=\"alert alert-danger alert-dismissable\">
