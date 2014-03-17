@@ -70,11 +70,16 @@
   
   function upload_file($file,$path){
     /**********************************
-    Information 
+      $file = $_FILE array
+      $path = full path to where the file needs to be written
+      RETURNS BOOLEAN
+        true on success
+        false on failure 
     **********************************/
     
     //Allowed MIME types (be careful, these are not always consistent
     // (http://www.hansenb.pdx.edu/DMKB/dict/tutorials/mime_typ.php)
+    $status = FALSE;
     $file_types = array("application/zip");
     
     //UPLOAD A FILE, IF ONE IS PRESENT
@@ -108,6 +113,10 @@
 			//check and see if this is a pdf, if not, DO NOT allow upload (security is bestest)
 			if(in_array($file['type'],$file_types)){
 				move_uploaded_file($file['tmp_name'], $target_path);
+				$status = TRUE;
 			}
 		}
+		
+		return $status;
+		
   }
