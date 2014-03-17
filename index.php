@@ -17,7 +17,7 @@
   <title>Upload</title>
 </head>
 <body>
-  <form role="form">
+  <form role="form" method="POST" action="./">
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
