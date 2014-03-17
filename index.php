@@ -12,7 +12,9 @@
   //file upload logic
   if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
     $path = $_SERVER['DOCUMENT_ROOT'] ."/gtfs-upload/files";
-    upload_file($_FILES["gtfsFile"], $path);
+    if(upload_file($_FILES["gtfsFile"], $path)){
+      echo "yay";
+    }
   }
 ?>
 <!doctype html>
