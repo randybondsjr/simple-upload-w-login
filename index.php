@@ -13,7 +13,10 @@
   if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
     $path = $_SERVER['DOCUMENT_ROOT'] ."/gtfs-upload/files";
     if(upload_file($_FILES["gtfsFile"], $path)){
-      echo "yay";
+      echo "<div class=\"alert alert-success alert-dismissable\">
+        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
+        <h4>Success!</h4> Your file has been uploaded.
+      </div>";
     }
   }
 ?>
