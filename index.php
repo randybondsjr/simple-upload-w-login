@@ -9,6 +9,8 @@
     $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     login($username, $password);
   }
+  
+  //file upload logic
 ?>
 <!doctype html>
 <html>
