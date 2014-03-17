@@ -10,3 +10,5 @@ This script will allow for an upload of a file behind a login.
 4. Change reference to 'table' in functions.php to your table 
 5. Finally, make sure that your ./files folder is writable by the webserver
 
+###Additional Notes
+1. Some classes in these files have been setup for use with Twitter Bootstrap
