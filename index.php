@@ -1,5 +1,5 @@
 <?php 
-  start_session();
+  session_start();
   
   // function to escape data and strip tags
   function safestrip($string){
