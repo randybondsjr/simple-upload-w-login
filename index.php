@@ -3,8 +3,13 @@
   require("../includes/functions.php");
   require("./includes/functions.php");
 
-  print_r($_SESSION);
   
+  if(isset($_POST["username"]) && $_POST["username"] != ''){
+    $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+    login($username, $password);
+  }
+  print_r($_SESSION);
 ?>
 <!doctype html>
 <html>
