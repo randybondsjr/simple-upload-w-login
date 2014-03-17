@@ -1,7 +1,4 @@
 <?php 
-  //you should update this to your date/timezone
-  date_default_timezone_set('America/Los_Angeles');
-  
   // function to escape data and strip tags
   function safestrip($string){
          $string = strip_tags($string);
