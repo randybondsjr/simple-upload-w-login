@@ -11,7 +11,8 @@
   }
   //file upload logic
   if(isset($_FILES["gtfsFile"]) && $_FILES["gtfsFile"] != ''){
-    upload_file($_FILES["gtfsFile"], "./files");
+    $path = $_SERVER['DOCUMENT_ROOT'] ."/gtfs-upload/files";
+    upload_file($_FILES["gtfsFile"], $path);
   }
 ?>
 <!doctype html>

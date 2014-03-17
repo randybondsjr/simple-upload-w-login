@@ -67,11 +67,13 @@
   
   function upload_file($file,$path){
     print_r($file);
+    print_r($path);
     //UPLOAD A FILE, IF ONE IS PRESENT
-		if($_FILES["photo"]["name"] != ''){
+		if($file["name"] != ''){
 			#### FILE UPLOAD PROCESS START ####
 			//define upload path
-			$target_path = "/var/www/apps/yak-back/uimages";
+			//$target_path = "/var/www/apps/yak-back/uimages";
+			$target_path = $path;
 			
 			//we want to organize these files in folders by year, check if the folder exists, if it doesn't, make it
 			if(!is_dir($target_path)){
