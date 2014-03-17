@@ -35,7 +35,8 @@
     $mysqli = ConnectToDBo('wptransit');
     
     // check if the user id and password combination exist in database
-    $sql = "SELECT * FROM table WHERE username = '$user' AND password = '$pass' LIMIT 0,1";
+    $sql = "SELECT * FROM gtfs_users WHERE username = '$user' AND password = '$pass' LIMIT 0,1";
+
     //if things worked
     if ($result = $mysqli->query($sql)) {
     //we need to check for results
